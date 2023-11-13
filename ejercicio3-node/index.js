@@ -35,8 +35,11 @@ app.get('/scrape', async (req, res) => {
 });
 
 // Ruta para manejar la raíz
+// Ruta para manejar la raíz
 app.get('/', (req, res) => {
-  res.send('¡Hola! Este es un servidor de scraping. Accede a /scrape para obtener la descripción de la página web.');
+  const serverMessage = '¡Hola! Este es un servidor de scraping. ' +
+                        `Accede a <a href="/scrape" target="_blank">localhost:${PORT}/scrape</a> para obtener la descripción de la página web.`;
+  res.send(serverMessage);
 });
 
 cron.schedule('* * * * *', () => {
